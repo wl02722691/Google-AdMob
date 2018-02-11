@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,61 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-X4-KNk">
+                                <rect key="frame" x="0.0" y="395" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="show Interstial">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showInterstial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AL0-z7-RXe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an8-KH-g98">
+                                <rect key="frame" x="0.0" y="300" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="show banner">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showBanner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3PS-Qq-0w0"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcL-JM-J6C" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="W8E-Zy-DVu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZaV-X4-KNk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8SY-h7-aH4"/>
+                            <constraint firstItem="vcL-JM-J6C" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B9Y-5W-Jv9"/>
+                            <constraint firstItem="an8-KH-g98" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E1E-ay-kVm"/>
+                            <constraint firstItem="ZaV-X4-KNk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MSu-IZ-nIa"/>
+                            <constraint firstItem="vcL-JM-J6C" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QdH-i7-Nxj"/>
+                            <constraint firstItem="vcL-JM-J6C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZpR-7a-plO"/>
+                            <constraint firstItem="an8-KH-g98" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lMX-kc-8NB"/>
+                            <constraint firstItem="an8-KH-g98" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="rB2-ML-gs5"/>
+                            <constraint firstItem="ZaV-X4-KNk" firstAttribute="top" secondItem="an8-KH-g98" secondAttribute="bottom" constant="65" id="x6g-UC-fZC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="VU5-mG-Ugw"/>
+                    <connections>
+                        <outlet property="bannerView" destination="vcL-JM-J6C" id="rRn-LU-FZT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="372" y="33.733133433283363"/>
         </scene>
     </scenes>
 </document>
